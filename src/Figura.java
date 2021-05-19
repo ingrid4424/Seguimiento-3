@@ -41,13 +41,13 @@ public abstract class Figura {
 	public void changeColor(Figura fig) throws NoFigureSelectedException{
 		if(this.isObject) {
 			if(this.isSelected) {
-				
+				this.colors.setColor(true);
 				this.colors.setR(fig.colors.getR());
 				this.colors.setG(fig.colors.getG());
 				this.colors.setB(fig.colors.getB());
 				this.isSelected = false;
 			} else {
-				throw new NoFigureSelectedException("No hay una figura seleccionada");
+				throw new NoFigureSelectedException("Error : No hay una figura seleccionada");
 			}
 			
 		} else {

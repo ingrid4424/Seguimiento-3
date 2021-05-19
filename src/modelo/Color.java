@@ -19,7 +19,7 @@ public class Color{
 	}
 	
 	public String getFinalColor() {
-		String rgb = r + g + b +"";
+		String rgb = r + ","+ g +","+ b ;
 		return rgb;
 	}
 

@@ -98,12 +98,15 @@ public class Main extends PApplet{
 		
 		if(btnComparar.isHover()) {
 			
-			try {
-				logica.compare(cuadrado.colors, circulo.colors);
-			} catch (Exception e) {
-				// TODO: handle exception
-				error = e.getMessage();
-			}
+				try {
+					logica.compare(cuadrado.colors, circulo.colors);
+				} catch (Exception e) {
+					// TODO: handle exception
+					error = e.getMessage();
+				}
+			
+			
+			
 		}
 		
 		if(btnLimpiar.isHover()) {
