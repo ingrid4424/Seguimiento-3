@@ -41,6 +41,7 @@ public abstract class Figura {
 	public void changeColor(Figura fig) throws NoFigureSelectedException{
 		if(this.isObject) {
 			if(this.isSelected) {
+				
 				this.colors.setR(fig.colors.getR());
 				this.colors.setG(fig.colors.getG());
 				this.colors.setB(fig.colors.getB());

@@ -32,7 +32,7 @@ public class Main extends PApplet{
 		btnLimpiar = new Btn((2*width)/3, 500, 150, 50, "Limpiar", this);
 		
 		listaColores = new ArrayList<>();
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<20; i++) {
 			listaColores.add(new Cuadrado(100+(i*50), 350, 50,50, this));
 		}
 		
@@ -82,6 +82,7 @@ public class Main extends PApplet{
 		
 		if(circulo.isHover()) {
 			circulo.setSelected(true);
+			System.out.println(circulo.isSelected());
 			if(cuadrado.isSelected()) {
 				cuadrado.setSelected(false);
 			}
@@ -89,6 +90,7 @@ public class Main extends PApplet{
 		
 		if(cuadrado.isHover()) {
 			cuadrado.setSelected(true);
+			System.out.println(cuadrado.isSelected());
 			if(circulo.isSelected()) {
 				circulo.setSelected(false);
 			}
@@ -107,6 +109,30 @@ public class Main extends PApplet{
 		if(btnLimpiar.isHover()) {
 			circulo.getColors().limpiarColor();
 			cuadrado.getColors().limpiarColor();
+		}
+		
+		for (Cuadrado color : listaColores) {
+			if(color.isHover()) {
+				try {
+					cuadrado.changeColor(color);
+				} catch (NoFigureSelectedException e) {
+					// TODO Auto-generated catch block
+					error = e.getMessage();
+				}
+			}
+			
+		}
+		
+		for (Cuadrado color : listaColores) {
+			if(color.isHover()) {
+				try {
+					circulo.changeColor(color);
+				} catch (NoFigureSelectedException e) {
+					// TODO Auto-generated catch block
+					error = e.getMessage();
+				}
+			}
+			
 		}
 	}
 	
