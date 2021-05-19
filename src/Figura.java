@@ -51,7 +51,7 @@ public abstract class Figura {
 			}
 			
 		} else {
-			this.colors.setB((int) this.app.random(255));
+			this.colors.setR((int) this.app.random(255));
 			this.colors.setG((int) this.app.random(255));
 			this.colors.setB((int) this.app.random(255));
 		}
