@@ -15,4 +15,6 @@ public class Circulo extends Figura {
 		app.circle(posX, posY, tamX);
 	}
 
+	
+
 }

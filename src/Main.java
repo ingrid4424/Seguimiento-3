@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import excepciones.NoFigureSelectedException;
 import excepciones.NoSameColorException;
 import modelo.Logica;
@@ -16,6 +18,7 @@ public class Main extends PApplet{
 	Cuadrado cuadrado;
 	String error;
 	Logica logica;
+	ArrayList<Cuadrado> listaColores;
 	
 	public void settings() {
 		size(1200,700);
@@ -27,6 +30,23 @@ public class Main extends PApplet{
 		cuadrado = new Cuadrado(width/3, 250, 100, 100, this);
 		btnComparar = new Btn(width/3, 500, 150, 50, "Comparar", this);
 		btnLimpiar = new Btn((2*width)/3, 500, 150, 50, "Limpiar", this);
+		
+		listaColores = new ArrayList<>();
+		for(int i=0; i<10; i++) {
+			listaColores.add(new Cuadrado(100+(i*50), 350, 50,50, this));
+		}
+		
+		for (Cuadrado color : listaColores) {
+			try {
+				color.changeColor(null);
+			} catch (NoFigureSelectedException e) {
+				// TODO Auto-generated catch block
+				error = e.getMessage();
+			}
+		}
+		
+		circulo.setObject(true);
+		cuadrado.setObject(true);
 	}
 	
 	public void draw()  {
@@ -43,9 +63,14 @@ public class Main extends PApplet{
 		cuadrado.pintarColor();
 		cuadrado.pintar();
 		
+		for (Cuadrado color : listaColores) {
+			color.pintarColor();
+			color.pintar();
+		}
+		
 		try {
 			fill(255,0,0);
-			text(error, 600,height/2);
+			text(error, width/2,600);
 		} catch (Exception e) {
 			// TODO: handle exception
 			//System.out.println(e.getMessage());	
@@ -54,6 +79,21 @@ public class Main extends PApplet{
 	}
 	
 	public void mouseClicked()  {
+		
+		if(circulo.isHover()) {
+			circulo.setSelected(true);
+			if(cuadrado.isSelected()) {
+				cuadrado.setSelected(false);
+			}
+		}
+		
+		if(cuadrado.isHover()) {
+			cuadrado.setSelected(true);
+			if(circulo.isSelected()) {
+				circulo.setSelected(false);
+			}
+		}
+		
 		if(btnComparar.isHover()) {
 			
 			try {
@@ -70,10 +110,6 @@ public class Main extends PApplet{
 		}
 	}
 	
-	public void changeColor() throws NoFigureSelectedException{
-		if(cuadrado.colors.isColor() && circulo.colors.isColor()) {
-			
-		}
-	}
+	
  
 }
