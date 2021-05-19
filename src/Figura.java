@@ -9,6 +9,8 @@ public abstract class Figura {
 	protected int tamY;
 	protected PApplet app;
 	protected Color colors;
+	private boolean isObject;
+	private boolean isSelected;
 	
 	public Figura(int posX, int posY, int tamX, int tamY, PApplet app) {
 		this.posX = posX;
@@ -17,6 +19,8 @@ public abstract class Figura {
 		this.tamY = tamY;
 		this.app = app;
 		this.colors = new Color();
+		this.isObject = false;
+		this.isSelected = false;
 	}
 	
 	public  abstract void pintar();

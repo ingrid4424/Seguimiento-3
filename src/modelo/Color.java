@@ -23,6 +23,14 @@ public class Color{
 		return rgb;
 	}
 
+	public boolean isColor() {
+		return isColor;
+	}
+
+	public void setColor(boolean isColor) {
+		this.isColor = isColor;
+	}
+
 	public int getR() {
 		return r;
 	}
