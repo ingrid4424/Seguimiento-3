@@ -29,6 +29,12 @@ public abstract class Figura {
 	
 
 	public void pintarColor() {
+		this.app.stroke(0);
+		this.app.strokeWeight(1);
+		if(this.isSelected) {
+			app.stroke(200,0,0);
+			app.strokeWeight(5);
+		}
 		try {
 			this.app.fill(colors.getR(),colors.getG(),colors.getB());
 		} catch (NullPointerException e) {
@@ -40,12 +46,14 @@ public abstract class Figura {
 	
 	public void changeColor(Figura fig) throws NoFigureSelectedException{
 		if(this.isObject) {
+			
 			if(this.isSelected) {
 				this.colors.setColor(true);
 				this.colors.setR(fig.colors.getR());
 				this.colors.setG(fig.colors.getG());
 				this.colors.setB(fig.colors.getB());
-				this.isSelected = false;
+				
+				throw new NoFigureSelectedException("Status : una figura seleccionada");
 			} else {
 				throw new NoFigureSelectedException("Error : No hay una figura seleccionada");
 			}

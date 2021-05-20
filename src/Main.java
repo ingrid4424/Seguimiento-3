@@ -54,6 +54,9 @@ public class Main extends PApplet{
 		rectMode(CENTER);
 		textAlign(CENTER,CENTER);
 		
+		stroke(0);
+		strokeWeight(1);
+		
 		btnComparar.pintar();
 		btnLimpiar.pintar();
 		

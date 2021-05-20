@@ -12,6 +12,7 @@ public class Cuadrado extends Figura{
 	@Override
 	public void pintar() {
 		// TODO Auto-generated method stub
+		
 		app.rectMode(PConstants.CENTER);
 		app.rect(posX, posY, tamX, tamY);
 	}
